@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sprichwort-O-Mat</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #sprichwort-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="sprichwort-container">
+        <p id="sprichwort">Lade Sprichwort...</p>
+        <button onclick="zeigeZufaelligesSprichwort()">Neues Sprichwort</button>
+    </div>
+
+    <script>
+        async function ladeSprichwoerter() {
+            const response = await fetch('sprichwoerter.txt');
+            const text = await response.text();
+            return text.split('\n').map(line => line.trim()).filter(line => line);
+        }
+
+        async function zeigeZufaelligesSprichwort() {
+            const sprueche = await ladeSprichwoerter();
+            const zufaelligesSprichwort = sprueche[Math.floor(Math.random() * sprueche.length)];
+            document.getElementById('sprichwort').textContent = zufaelligesSprichwort;
+        }
+
+        zeigeZufaelligesSprichwort(); 
+    </script>
+</body>
+</html>
