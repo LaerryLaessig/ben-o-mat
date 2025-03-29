@@ -2,15 +2,18 @@
 <html>
 <head>
     <title>Sprichwort-O-Mat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            padding: 20px; 
+            box-sizing: border-box; 
         }
         #sprichwort-container {
             background-color: white;
@@ -18,11 +21,17 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 90%; 
+            max-width: 600px; 
         }
         button {
             margin-top: 10px;
-            padding: 8px 16px;
+            padding: 10px 20px; 
+            font-size: 1em; 
             cursor: pointer;
+        }
+        #sprichwort {
+            font-size: 1.2em; 
         }
     </style>
 </head>
@@ -45,7 +54,7 @@
             document.getElementById('sprichwort').textContent = zufaelligesSprichwort;
         }
 
-        zeigeZufaelligesSprichwort(); 
+        zeigeZufaelligesSprichwort();
     </script>
 </body>
 </html>
