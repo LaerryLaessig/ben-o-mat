@@ -1,4 +1,4 @@
-# sprichw-rter
+# ben-o-mat
 
 Diese Webseite zeigt ein zufälliges Sprichwort aus einer Textdatei an.
 
